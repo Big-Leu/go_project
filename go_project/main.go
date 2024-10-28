@@ -121,7 +121,7 @@ func execCommandInPod(c *gin.Context) {
         c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
         return
     }
-    pythonCommand := fmt.Sprintf(`python script_to.py --endpoint_type %s --function_name %s --route %s --function_file %s`, pod.EndPoint,
+    pythonCommand := fmt.Sprintf(`python script_to.py --endpoint_type %s --function_name %s --route %s --function_file '%s'`, pod.EndPoint,
     pod.FunctionName, pod.Route, pod.FunctionBody)
 
     fmt.Print(pythonCommand)
